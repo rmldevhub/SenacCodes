@@ -1,140 +1,407 @@
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.lh-0 {
+  line-height: 0;
 }
 
 body {
-    background-color: #ededed;
-    font-family: Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #cbcbcb;
 }
 
-.navOne {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    padding: 10px 10%;
-    gap: 30px;
-    background-color: #ffe600;
+.navbar {
+  background-color: #ffe600;
+  width: 100%;
+  padding: 15px 0 0 0;
 }
 
-#logo {
-    width: auto;
-    height: 40px;
-    object-fit: contain;
+.navbar-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 15px;
 }
 
-.pesquisa {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    max-width: 600px;
-    height: 45px;
-    background-color: white;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    overflow: hidden;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+.navbar-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+  margin-bottom: 20px;
 }
 
-.pesquisa input {
-    flex: 1;
-    min-width: 0;
-    height: 100%;
-    padding: 0 15px;
-    border: none;
-    outline: none;
-    font-size: 14px;
-    color: #333;
+.logo {
+  display: flex;
+  align-items: center;
+  min-width: 100px;
 }
 
-.pesquisa input::placeholder {
-    color: #999;
-}
-
-.pesquisa button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50px;
-    height: 100%;
-    border: none;
-    border-left: 1px solid #eee;
-    background-color: white;
-    cursor: pointer;
-    transition: background-color 0.2s;
-}
-
-.pesquisa button:hover {
-    background-color: #f5f5f5;
-}
-
-.pesquisa button img {
-    width: 20px;
-    height: 20px;
-    object-fit: contain;
+.logo img {
+  width: 70%;
+  height: auto;
 }
 
 #teste {
-    width: auto;
-    height: 40px;
-    object-fit: contain;
+  width: 30%;
+  height: auto;
 }
 
-.navTwo {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    padding: 10px 10%;
-    gap: 30px;
-    background-color: #ffe600;
+.search {
+  display: flex;
+  align-items: center;
+  background: white;
+  height: 40px;
+  min-width: 600px;
+  max-width: 800px;
+  flex: 1;
+  box-shadow: 0 1px 2px #0002;
 }
 
-.navTwo div {
-    display: flex;
-    gap: 3px;
+.search input {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  border: none;
+  outline: none;
+  padding: 0 15px;
+  font-size: 14px;
 }
 
-.navTwo img {
-    width: auto;
-    height: 25px;
+.search button {
+  width: 45px;
+  height: 100%;
+  border: none;
+  border-left: 1px solid #eee;
+  background: white;
+  cursor: pointer;
 }
 
-.navTwo span {
-    color: rgba(0, 0, 0, .55);
-    font-size: 0.8rem;
+.search button img {
+  width: 20px;
 }
 
-.navTwo p {
-    color: rgba(0, 0, 0, .8980392157);;
-    font-size: 0.9rem;
-    line-height: 15px;
-    margin: 0;
+.navbar-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
 }
 
-.navTwo .categorias {
-    display: flex;
+.location {
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+  min-width: 130px;
+}
+
+.location img {
+  width: 30px;
+}
+
+.location span {
+  color: #555;
+  font-size: 0.7rem;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #333;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.menu a:hover,
+.user-actions a:hover {
+  color: #000;
+  text-decoration: underline;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown img {
+  width: 10px;
+}
+
+.dropContent {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 180px;
+  padding: 10px;
+  background-color: white;
+  box-shadow: 0 2px 8px #0002;
+  border-radius: 5px;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+}
+
+.dropContent a {
+  display: block;
+  padding: 12px;
+  color: #f5f5f5;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.dropContent a:hover {
+  background-color: #3483fa;
+  color: #f5f5f5;
+  text-decoration: none;
+}
+
+.dropdown:hover .dropContent,
+.dropdown:focus-within .dropContent {
+  margin-top: 20px;
+  background-color: #333;
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown:hover img {
+  rotate: 180deg;
+}
+
+.user-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  white-space: nowrap;
+}
+
+.user-actions a {
+  text-decoration: none;
+  color: #333;
+  font-size: 14px;
+}
+
+.user-actions img {
+  width: 25px;
+}
+
+.card {
+  background-color: #ffffff;
+  border: none;
+}
+
+.card img {
+  width: 50%;
+}
+
+.cards .card {
+  display: flex;
+  flex-direction: column;
+}
+
+.cards .card-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.cards .card-body .btn {
+  margin-top: auto;
+  align-self: center;
+}
+
+.testekk {
+  font-size: 0.8rem;
+}
+
+/* Seção de ofertas*/
+
+h5:hover {
+  color: #3483fa;
+  cursor: pointer;
+}
+
+.secaoOfertas .oferta .card img {
+  width: 100%;
+  height: 180px;
+  object-fit: contain;
+}
+
+/* Oferta Diária*/
+.ofertaDia .desconto span {
+  color: white;
+  background-color: #00a650;
+  padding: 5px;
+  font-size: 0.7rem;
+}
+
+.ofertaDia .desconto del {
+  color: #757575;
+  font-size: 1rem;
+  margin-left: 5px;
+}
+
+.ofertaDia .preco {
+  font-size: 2rem;
+}
+
+.ofertaDia .preco sup {
+  font-size: 0.8rem;
+  margin-left: -2px;
+  color: #757575;
+}
+
+.ofertaDia .preco .pix {
+  font-size: 0.8rem;
+  color: #00a650;
+  margin-top: -5px;
+}
+
+.ofertaDia .parcela {
+  font-size: 0.8rem;
+  margin-top: -15px;
+  margin-bottom: -15px;
+}
+
+.ofertaDia .freteGratis {
+  color: #00a650;
+  font-size: 0.9rem;
+}
+
+.ofertaDia .freteGratis .kkjj {
+  color: #757575;
+}
+
+/* Ofertas */
+
+.oferta,
+.ofertaDia {
+  background-color: #ffffff;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.oferta .desconto span {
+  color: white;
+  background-color: #00a650;
+  padding: 5px;
+  font-size: 0.7rem;
+}
+
+.oferta .desconto del {
+  color: #757575;
+  font-size: 0.8rem;
+  margin-left: 5px;
+}
+
+.oferta .preco {
+  font-size: 1.5rem;
+}
+
+.oferta .preco sup {
+  font-size: 0.8rem;
+  margin-left: -2px;
+  color: #757575;
+}
+
+.oferta .preco .pix {
+  font-size: 0.8rem;
+  color: #00a650;
+  margin: -5px 0 -10px 0;
+}
+
+.oferta .parcela {
+  font-size: 0.8rem;
+  margin-top: -15px;
+  margin-bottom: 0;
+}
+
+.oferta .testando {
+  font-size: 0.9rem;
+  background-color: #39d88683;
+  color: #00a650;
+  font-weight: bold;
+  border-radius: 5px;
+  padding: 0 10px;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: -10px;
+}
+
+.oferta .freteGratis {
+  color: #00a650;
+  font-size: 0.9rem;
+}
+
+.oferta .freteGratis .kkjj {
+  color: #757575;
+}
+
+.oferta .parcela {
+  margin-top: 10px;
+  margin-bottom: -10px;
+}
+
+.oferta .parcela span {
+  color: #00a650;
+}
+
+@media (max-width: 1000px) {
+  .navbar-top {
     gap: 20px;
-    justify-content: space-between;
-    align-items: center;
+  }
+
+  #teste {
+    display: none;
+  }
+
+  .user-actions {
+    gap: 8px;
+  }
+
+  .menu {
+    gap: 12px;
+  }
 }
 
-.navTwo .login {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-}
+@media (max-width: 768px) {
+  .navbar-top {
+    flex-wrap: wrap;
+  }
 
-.carousel {
+  .logo {
+    min-width: auto;
+  }
+
+  .search {
+    flex-basis: 100%;
+    max-width: 100%;
+  }
+
+  .navbar-bottom {
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  .location {
+    display: none;
+  }
+
+  .menu {
     width: 100%;
-    overflow: hidden;
-}
+    overflow-x: auto;
+    padding: 5px 0;
+  }
 
-.carousel-item img {
-    display: block;
-    width: 100%;
-    height: auto;
+  .user-actions {
+    display: none;
+  }
 }
