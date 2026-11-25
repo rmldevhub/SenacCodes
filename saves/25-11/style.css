@@ -1,0 +1,11 @@
+header {
+    background-color: green;
+    display: flex;
+    padding: 12px;
+    justify-content: center;
+}
+
+header a {
+    color: white;
+    text-decoration: none;
+}
